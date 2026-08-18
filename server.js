@@ -10,7 +10,7 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 const JWT_SECRET = "digital-payment-college-project-secret";
 
 const USERS_FILE = path.join(__dirname, "users.json");
