@@ -1,687 +1,481 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Demo Payment | Digital Payment Awareness</title>
+    <title>Demo Payment | DigitalPay Awareness</title>
 
-<style>
-* {
-    box-sizing: border-box;
-}
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
 
-body {
-    margin: 0;
-    font-family: Inter, system-ui, -apple-system, "Segoe UI", Arial, sans-serif;
-    background: #f6f9ff;
-    color: #10213a;
-}
+        body {
+            background: #f4f7fb;
+            color: #222;
+        }
 
-.navbar {
-    background: #ffffff;
-    border-bottom: 1px solid #e4eaf2;
-    padding: 18px 7%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
+        nav {
+            background: #ffffff;
+            padding: 16px 7%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
 
-.brand {
-    text-decoration: none;
-    font-size: 20px;
-    font-weight: 900;
-    color: #155eef;
-}
+        .logo {
+            font-size: 22px;
+            font-weight: bold;
+            color: #1769aa;
+        }
 
-.brand span {
-    color: #10213a;
-}
+        .nav-links {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
 
-.back-btn {
-    text-decoration: none;
-    color: #10213a;
-    border: 1px solid #dbe4f0;
-    padding: 10px 16px;
-    border-radius: 10px;
-    font-weight: 800;
-    background: white;
-}
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+        }
 
-.container {
-    max-width: 650px;
-    margin: auto;
-    padding: 50px 6%;
-}
+        .nav-links a:hover {
+            color: #1769aa;
+        }
 
-.payment-box {
-    background: white;
-    border: 1px solid #e4eaf2;
-    border-radius: 22px;
-    padding: 35px;
-    box-shadow: 0 18px 50px rgba(18, 46, 82, 0.10);
-}
+        .container {
+            width: 90%;
+            max-width: 600px;
+            margin: 45px auto;
+        }
 
-.eyebrow {
-    color: #155eef;
-    font-size: 13px;
-    font-weight: 900;
-    letter-spacing: 1px;
-}
+        .page-title {
+            text-align: center;
+            margin-bottom: 25px;
+        }
 
-h1 {
-    margin: 8px 0;
-    font-size: 32px;
-}
+        .page-title h1 {
+            color: #1769aa;
+            margin-bottom: 8px;
+        }
 
-.subtitle {
-    color: #617086;
-    line-height: 1.6;
-}
+        .page-title p {
+            color: #666;
+        }
 
-.store-card {
-    margin: 25px 0;
-    padding: 20px;
-    border-radius: 15px;
-    background: #eef4ff;
-}
+        .demo-warning {
+            background: #fff3cd;
+            border: 1px solid #ffe69c;
+            color: #664d03;
+            padding: 14px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
 
-.store-card h2 {
-    margin: 0 0 5px;
-}
+        .payment-card {
+            background: white;
+            padding: 30px;
+            border-radius: 18px;
+            box-shadow: 0 5px 25px rgba(0,0,0,0.08);
+        }
 
-.store-card p {
-    margin: 5px 0;
-    color: #617086;
-}
+        .payment-card h2 {
+            margin-bottom: 20px;
+            color: #333;
+        }
 
-label {
-    display: block;
-    margin-top: 18px;
-    font-weight: 800;
-}
+        .form-group {
+            margin-bottom: 18px;
+        }
 
-input {
-    width: 100%;
-    padding: 14px;
-    margin-top: 8px;
-    border: 1px solid #ccd6e4;
-    border-radius: 10px;
-    font-size: 15px;
-    outline: none;
-}
+        label {
+            display: block;
+            margin-bottom: 7px;
+            font-weight: bold;
+        }
 
-input:focus {
-    border-color: #155eef;
-}
+        input,
+        select {
+            width: 100%;
+            padding: 13px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            font-size: 15px;
+            outline: none;
+        }
 
-.hint {
-    font-size: 12px;
-    color: #617086;
-    margin-top: 6px;
-}
+        input:focus,
+        select:focus {
+            border-color: #1769aa;
+        }
 
-.btn {
-    width: 100%;
-    margin-top: 25px;
-    padding: 14px;
-    border: 0;
-    border-radius: 10px;
-    background: #155eef;
-    color: white;
-    font-size: 16px;
-    font-weight: 900;
-    cursor: pointer;
-}
+        .pay-btn {
+            width: 100%;
+            padding: 14px;
+            border: none;
+            border-radius: 9px;
+            background: #1769aa;
+            color: white;
+            font-size: 17px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 8px;
+        }
 
-.btn:hover {
-    opacity: 0.92;
-}
+        .pay-btn:hover {
+            background: #0d568f;
+        }
 
-.message {
-    margin-top: 18px;
-    padding: 14px;
-    border-radius: 10px;
-    display: none;
-    font-weight: 700;
-}
+        .history-btn {
+            display: block;
+            text-align: center;
+            margin-top: 18px;
+            padding: 13px;
+            border-radius: 9px;
+            background: #e8f1f8;
+            color: #1769aa;
+            text-decoration: none;
+            font-weight: bold;
+        }
 
-.info {
-    background: #eef4ff;
-    color: #155eef;
-}
+        .success-box {
+            display: none;
+            margin-top: 22px;
+            padding: 20px;
+            border-radius: 12px;
+            background: #d1e7dd;
+            color: #0f5132;
+        }
 
-.error {
-    background: #fff0f0;
-    color: #c62828;
-}
+        .success-box h3 {
+            margin-bottom: 10px;
+        }
 
-.success {
-    background: #ecfdf3;
-    color: #087443;
-}
+        .transaction-info {
+            line-height: 1.8;
+        }
 
-.otp-section {
-    display: none;
-    margin-top: 25px;
-    padding-top: 20px;
-    border-top: 1px solid #e4eaf2;
-}
+        footer {
+            text-align: center;
+            padding: 25px;
+            color: #777;
+        }
 
-.demo-otp {
-    margin-top: 12px;
-    padding: 14px;
-    border-radius: 10px;
-    background: #fff8e1;
-    color: #8a5a00;
-    font-weight: 900;
-    text-align: center;
-}
+        @media (max-width: 600px) {
+            nav {
+                flex-direction: column;
+                gap: 12px;
+            }
 
-.success-box {
-    display: none;
-    text-align: center;
-}
+            .nav-links {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
 
-.success-icon {
-    font-size: 60px;
-}
-
-.success-box h2 {
-    color: #087443;
-}
-
-.transaction {
-    margin-top: 20px;
-    background: #f6f9ff;
-    border-radius: 14px;
-    padding: 18px;
-    text-align: left;
-}
-
-.transaction p {
-    margin: 8px 0;
-}
-
-.small-note {
-    margin-top: 25px;
-    font-size: 12px;
-    color: #617086;
-    text-align: center;
-    line-height: 1.5;
-}
-
-@media (max-width: 600px) {
-    .payment-box {
-        padding: 25px 20px;
-    }
-
-    h1 {
-        font-size: 27px;
-    }
-}
-</style>
+            .payment-card {
+                padding: 22px;
+            }
+        }
+    </style>
 </head>
 
 <body>
 
-<header class="navbar">
+<nav>
+    <div class="logo">DigitalPay Awareness</div>
 
-    <a class="brand" href="index.html">
-        Digital<span>Pay</span> Awareness
-    </a>
+    <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="dashboard.html">Dashboard</a>
+        <a href="payment-history.html">History</a>
+    </div>
+</nav>
 
-    <a class="back-btn" href="dashboard.html">
-        ← Dashboard
-    </a>
+<div class="container">
 
-</header>
+    <div class="page-title">
+        <h1>💳 Demo Payment</h1>
+        <p>Digital Payment Awareness College Project</p>
+    </div>
 
+    <div class="demo-warning">
+        ⚠️ <strong>Demo Mode:</strong>
+        This payment is completely fake. No real money will be transferred.
+    </div>
 
-<main class="container">
+    <div class="payment-card">
 
-    <div class="payment-box">
+        <h2>Make a Demo Payment</h2>
 
-        <!-- PAYMENT FORM -->
+        <form id="paymentForm">
 
-        <div id="paymentFormSection">
-
-            <div class="eyebrow">
-                DEMO PAYMENT
-            </div>
-
-            <h1>Pay General Store 💳</h1>
-
-            <p class="subtitle">
-                This is a simulated payment for your college project.
-                No real money or bank account is involved.
-            </p>
-
-
-            <div class="store-card">
-
-                <h2>🏪 General Store</h2>
-
-                <p>Demo Merchant</p>
-
-                <p>
-                    UPI payments are simulated for educational purposes.
-                </p>
-
-            </div>
-
-
-            <label for="upiId">
-                Demo UPI ID
-            </label>
-
-            <input
-                type="text"
-                id="upiId"
-                placeholder="Example: XYZ@123456"
-                autocomplete="off"
-            >
-
-            <div class="hint">
-                Use any demo UPI ID. Example: XYZ@123456
-            </div>
-
-
-            <label for="amount">
-                Amount (₹)
-            </label>
-
-            <input
-                type="number"
-                id="amount"
-                placeholder="Enter amount"
-                min="1"
-                step="1"
-            >
-
-            <div class="hint">
-                This amount is only displayed as a demo transaction.
-            </div>
-
-
-            <button
-                class="btn"
-                id="payButton"
-            >
-                Continue Demo Payment
-            </button>
-
-
-            <div
-                class="message"
-                id="message"
-            ></div>
-
-
-            <!-- OTP SECTION -->
-
-            <div
-                class="otp-section"
-                id="otpSection"
-            >
-
-                <h3>Demo OTP Verification</h3>
-
-                <p>
-                    A simulated OTP has been generated for this
-                    college project.
-                </p>
-
-                <div
-                    class="demo-otp"
-                    id="demoOtp"
-                >
-                    Demo OTP: ------
-                </div>
-
-
-                <label for="otp">
-                    Enter Demo OTP
-                </label>
+            <div class="form-group">
+                <label for="name">Your Name</label>
 
                 <input
                     type="text"
-                    id="otp"
-                    maxlength="6"
-                    placeholder="Enter 6-digit demo OTP"
-                    inputmode="numeric"
-                    autocomplete="off"
+                    id="name"
+                    placeholder="Enter your name"
+                    required
                 >
-
-
-                <button
-                    class="btn"
-                    id="verifyButton"
-                >
-                    Verify & Complete Demo Payment
-                </button>
-
             </div>
 
-        </div>
+            <div class="form-group">
+                <label for="receiver">Receiver Name</label>
 
-
-        <!-- SUCCESS SECTION -->
-
-        <div
-            class="success-box"
-            id="successBox"
-        >
-
-            <div class="success-icon">
-                ✅
+                <input
+                    type="text"
+                    id="receiver"
+                    placeholder="Enter receiver name"
+                    required
+                >
             </div>
 
-            <h2>
-                Payment Successful!
-            </h2>
+            <div class="form-group">
+                <label for="upi">Receiver UPI ID</label>
 
-            <p>
-                Your demo payment was completed successfully.
-            </p>
+                <input
+                    type="text"
+                    id="upi"
+                    placeholder="example@upi"
+                    required
+                >
+            </div>
 
+            <div class="form-group">
+                <label for="amount">Amount (₹)</label>
 
-            <div class="transaction">
+                <input
+                    type="number"
+                    id="amount"
+                    placeholder="Enter amount"
+                    min="1"
+                    max="100000"
+                    required
+                >
+            </div>
 
-                <p>
-                    <strong>Merchant:</strong>
-                    General Store
-                </p>
+            <div class="form-group">
+                <label for="method">Payment Method</label>
 
-                <p>
-                    <strong>UPI ID:</strong>
-                    <span id="successUpi"></span>
-                </p>
+                <select id="method" required>
+                    <option value="">Select payment method</option>
+                    <option value="UPI">UPI</option>
+                    <option value="Debit Card">Debit Card</option>
+                    <option value="Credit Card">Credit Card</option>
+                    <option value="Net Banking">Net Banking</option>
+                </select>
+            </div>
 
-                <p>
-                    <strong>Amount:</strong>
-                    ₹<span id="successAmount"></span>
-                </p>
+            <button type="submit" class="pay-btn">
+                💸 Pay Now (Demo)
+            </button>
 
-                <p>
-                    <strong>Status:</strong>
-                    <span style="color:#087443;">
-                        Successful
-                    </span>
-                </p>
+        </form>
 
-                <p>
+        <a href="payment-history.html" class="history-btn">
+            📊 View Payment History
+        </a>
+
+        <div id="successBox" class="success-box">
+
+            <h3>✅ Payment Successful!</h3>
+
+            <div class="transaction-info">
+                <div>
                     <strong>Transaction ID:</strong>
                     <span id="transactionId"></span>
-                </p>
+                </div>
 
+                <div>
+                    <strong>Amount:</strong>
+                    ₹<span id="successAmount"></span>
+                </div>
+
+                <div>
+                    <strong>Receiver:</strong>
+                    <span id="successReceiver"></span>
+                </div>
+
+                <div>
+                    <strong>UPI ID:</strong>
+                    <span id="successUpi"></span>
+                </div>
+
+                <div>
+                    <strong>Method:</strong>
+                    <span id="successMethod"></span>
+                </div>
+
+                <div>
+                    <strong>Date & Time:</strong>
+                    <span id="successDate"></span>
+                </div>
+
+                <div>
+                    <strong>Status:</strong>
+                    Successful
+                </div>
             </div>
-
-
-            <a
-                class="btn"
-                href="dashboard.html"
-                style="display:block;text-align:center;text-decoration:none;"
-            >
-                Back to Dashboard
-            </a>
-
-        </div>
-
-
-        <div class="small-note">
-
-            ⚠️ DEMO ONLY — This payment system does not connect
-            to any bank, UPI network, wallet, card, or real payment service.
 
         </div>
 
     </div>
+</div>
 
-</main>
+<footer>
+    © 2026 DigitalPay Awareness | College Project
+</footer>
 
 
 <script>
 
-/*
-    DEMO PAYMENT SYSTEM
+document
+.getElementById("paymentForm")
+.addEventListener("submit", function(event) {
 
-    No real payment is processed.
-*/
+    event.preventDefault();
 
+    const name =
+        document.getElementById("name").value.trim();
 
-// Check login
+    const receiver =
+        document.getElementById("receiver").value.trim();
 
-if (
-    sessionStorage.getItem("digitalPayLoggedIn") !== "true"
-) {
-
-    window.location.href = "login.html";
-
-}
-
-
-// Elements
-
-const payButton =
-    document.getElementById("payButton");
-
-const verifyButton =
-    document.getElementById("verifyButton");
-
-const upiInput =
-    document.getElementById("upiId");
-
-const amountInput =
-    document.getElementById("amount");
-
-const message =
-    document.getElementById("message");
-
-const otpSection =
-    document.getElementById("otpSection");
-
-const demoOtp =
-    document.getElementById("demoOtp");
-
-const otpInput =
-    document.getElementById("otp");
-
-const paymentFormSection =
-    document.getElementById("paymentFormSection");
-
-const successBox =
-    document.getElementById("successBox");
-
-
-// Temporary demo OTP
-
-let generatedOtp = "";
-
-
-// Continue Payment
-
-payButton.addEventListener("click", function () {
-
-    const upiId =
-        upiInput.value.trim();
+    const upi =
+        document.getElementById("upi").value.trim();
 
     const amount =
-        amountInput.value.trim();
+        document.getElementById("amount").value;
+
+    const method =
+        document.getElementById("method").value;
 
 
-    if (!upiId) {
+    if (!name || !receiver || !upi || !amount || !method) {
 
-        showMessage(
-            "Please enter a demo UPI ID.",
-            "error"
-        );
-
-        return;
-    }
-
-
-    if (!amount || Number(amount) <= 0) {
-
-        showMessage(
-            "Please enter a valid demo amount.",
-            "error"
-        );
+        alert("Please fill all the details.");
 
         return;
     }
 
 
-    // Generate a random 6-digit demo OTP
+    if (Number(amount) <= 0) {
 
-    generatedOtp =
-        Math.floor(
-            100000 + Math.random() * 900000
-        ).toString();
-
-
-    demoOtp.textContent =
-        "Demo OTP: " + generatedOtp;
-
-
-    otpSection.style.display =
-        "block";
-
-
-    showMessage(
-        "Demo payment created. Enter the displayed demo OTP.",
-        "info"
-    );
-
-});
-
-
-// Verify OTP
-
-verifyButton.addEventListener("click", function () {
-
-    const enteredOtp =
-        otpInput.value.trim();
-
-
-    if (!enteredOtp) {
-
-        showMessage(
-            "Please enter the demo OTP.",
-            "error"
-        );
+        alert("Please enter a valid amount.");
 
         return;
     }
 
 
-    if (enteredOtp !== generatedOtp) {
-
-        showMessage(
-            "Incorrect demo OTP. Please enter the OTP shown above.",
-            "error"
-        );
-
-        return;
-    }
-
-
-    // Payment successful
-
-    const upiId =
-        upiInput.value.trim();
-
-    const amount =
-        amountInput.value.trim();
-
+    // Generate demo transaction ID
 
     const transactionId =
-        "DEMO" +
-        Date.now().toString().slice(-10);
+        "DP" +
+        Date.now() +
+        Math.floor(Math.random() * 1000);
 
 
-    document.getElementById(
-        "successUpi"
-    ).textContent = upiId;
+    const now = new Date();
+
+    const dateTime =
+        now.toLocaleString("en-IN");
 
 
-    document.getElementById(
-        "successAmount"
-    ).textContent =
-        Number(amount).toFixed(2);
+    // Create transaction object
 
+    const transaction = {
 
-    document.getElementById(
-        "transactionId"
-    ).textContent =
-        transactionId;
+        id: transactionId,
 
+        name: name,
 
-    // Save demo transaction
+        receiver: receiver,
 
-    const username =
-        sessionStorage.getItem(
-            "digitalPayUsername"
-        ) || "User";
-
-
-    const oldPayments =
-        JSON.parse(
-            localStorage.getItem(
-                "demoPayments_" + username
-            ) || "[]"
-        );
-
-
-    oldPayments.push({
-
-        merchant: "General Store",
-
-        upiId: upiId,
+        upi: upi,
 
         amount: Number(amount),
 
-        transactionId: transactionId,
+        method: method,
 
         status: "Successful",
 
-        date: new Date().toLocaleString()
+        date: dateTime
 
-    });
+    };
 
+
+    // Get previous transactions
+
+    let transactions =
+        JSON.parse(
+            localStorage.getItem("demoPayments")
+        ) || [];
+
+
+    // Add new transaction
+
+    transactions.unshift(transaction);
+
+
+    // Save transactions
 
     localStorage.setItem(
-
-        "demoPayments_" + username,
-
-        JSON.stringify(oldPayments)
-
+        "demoPayments",
+        JSON.stringify(transactions)
     );
 
 
-    paymentFormSection.style.display =
-        "none";
+    // Show success message
+
+    document.getElementById("transactionId")
+        .textContent = transactionId;
+
+    document.getElementById("successAmount")
+        .textContent = Number(amount).toFixed(2);
+
+    document.getElementById("successReceiver")
+        .textContent = receiver;
+
+    document.getElementById("successUpi")
+        .textContent = upi;
+
+    document.getElementById("successMethod")
+        .textContent = method;
+
+    document.getElementById("successDate")
+        .textContent = dateTime;
 
 
-    successBox.style.display =
-        "block";
+    document.getElementById("successBox")
+        .style.display = "block";
+
+
+    // Reset form
+
+    document.getElementById("paymentForm")
+        .reset();
+
+
+    // Scroll to success message
+
+    document.getElementById("successBox")
+        .scrollIntoView({
+            behavior: "smooth"
+        });
 
 });
-
-
-// Message helper
-
-function showMessage(text, type) {
-
-    message.textContent = text;
-
-    message.className =
-        "message " + type;
-
-    message.style.display =
-        "block";
-
-}
 
 </script>
 
