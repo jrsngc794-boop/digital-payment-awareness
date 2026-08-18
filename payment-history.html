@@ -1,314 +1,470 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Payment History | Digital Payment Awareness</title>
+    <meta charset="UTF-8">
 
-<style>
-* {
-    box-sizing: border-box;
-}
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
 
-body {
-    margin: 0;
-    font-family: Inter, system-ui, -apple-system, "Segoe UI", Arial, sans-serif;
-    background: #f6f9ff;
-    color: #10213a;
-}
+    <title>Payment History | DigitalPay Awareness</title>
 
-.navbar {
-    background: #ffffff;
-    border-bottom: 1px solid #e4eaf2;
-    padding: 18px 7%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
 
-.brand {
-    text-decoration: none;
-    font-size: 20px;
-    font-weight: 900;
-    color: #155eef;
-}
+    <style>
 
-.brand span {
-    color: #10213a;
-}
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
 
-.back-btn {
-    text-decoration: none;
-    color: #10213a;
-    border: 1px solid #dbe4f0;
-    padding: 10px 16px;
-    border-radius: 10px;
-    font-weight: 800;
-    background: white;
-}
 
-.container {
-    max-width: 950px;
-    margin: auto;
-    padding: 50px 6%;
-}
+        body {
+            background: #f4f7fb;
+            color: #222;
+        }
 
-.header {
-    margin-bottom: 30px;
-}
 
-.eyebrow {
-    color: #155eef;
-    font-size: 13px;
-    font-weight: 900;
-    letter-spacing: 1px;
-}
+        nav {
+            background: white;
+            padding: 16px 7%;
 
-h1 {
-    margin: 8px 0;
-    font-size: 32px;
-}
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
 
-.subtitle {
-    color: #617086;
-}
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
 
-.history-box {
-    background: white;
-    border: 1px solid #e4eaf2;
-    border-radius: 22px;
-    padding: 25px;
-    box-shadow: 0 18px 50px rgba(18,46,82,.08);
-}
+            position: sticky;
+            top: 0;
 
-.payment-card {
-    border: 1px solid #e4eaf2;
-    border-radius: 15px;
-    padding: 20px;
-    margin-bottom: 15px;
-    background: #ffffff;
-}
+            z-index: 100;
+        }
 
-.payment-top {
-    display: flex;
-    justify-content: space-between;
-    gap: 15px;
-    align-items: center;
-}
 
-.merchant {
-    font-size: 19px;
-    font-weight: 900;
-}
+        .logo {
+            font-size: 22px;
+            font-weight: bold;
+            color: #1769aa;
+        }
 
-.amount {
-    font-size: 20px;
-    font-weight: 900;
-    color: #155eef;
-}
 
-.status {
-    display: inline-block;
-    margin-top: 8px;
-    padding: 5px 10px;
-    border-radius: 20px;
-    background: #ecfdf3;
-    color: #087443;
-    font-size: 12px;
-    font-weight: 900;
-}
+        .nav-links {
+            display: flex;
+            gap: 20px;
+        }
 
-.details {
-    margin-top: 15px;
-    padding-top: 15px;
-    border-top: 1px solid #edf1f6;
-    color: #617086;
-    font-size: 14px;
-    line-height: 1.8;
-}
 
-.empty {
-    text-align: center;
-    padding: 50px 20px;
-    color: #617086;
-}
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+        }
 
-.empty-icon {
-    font-size: 50px;
-    margin-bottom: 10px;
-}
 
-.clear-btn {
-    margin-top: 20px;
-    padding: 11px 16px;
-    border: 1px solid #e0b4b4;
-    background: #fff5f5;
-    color: #a52222;
-    border-radius: 10px;
-    font-weight: 800;
-    cursor: pointer;
-}
+        .nav-links a:hover {
+            color: #1769aa;
+        }
 
-.note {
-    margin-top: 25px;
-    text-align: center;
-    color: #617086;
-    font-size: 12px;
-    line-height: 1.5;
-}
 
-@media (max-width: 600px) {
+        .container {
+            width: 92%;
+            max-width: 1000px;
+            margin: 40px auto;
+        }
 
-    .payment-top {
-        flex-direction: column;
-        align-items: flex-start;
-    }
 
-    h1 {
-        font-size: 27px;
-    }
-}
-</style>
+        .title {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+
+        .title h1 {
+            color: #1769aa;
+            margin-bottom: 8px;
+        }
+
+
+        .title p {
+            color: #666;
+        }
+
+
+        .demo-warning {
+            background: #fff3cd;
+            border: 1px solid #ffe69c;
+            color: #664d03;
+
+            padding: 14px;
+
+            border-radius: 10px;
+
+            text-align: center;
+
+            margin-bottom: 25px;
+        }
+
+
+        .history-card {
+            background: white;
+
+            border-radius: 16px;
+
+            padding: 25px;
+
+            box-shadow:
+                0 5px 25px
+                rgba(0,0,0,0.08);
+        }
+
+
+        .top-bar {
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: center;
+
+            margin-bottom: 20px;
+
+            gap: 15px;
+        }
+
+
+        .top-bar h2 {
+            color: #333;
+        }
+
+
+        .clear-btn {
+            border: none;
+
+            background: #dc3545;
+
+            color: white;
+
+            padding: 10px 16px;
+
+            border-radius: 7px;
+
+            cursor: pointer;
+
+            font-weight: bold;
+        }
+
+
+        .clear-btn:hover {
+            background: #bb2d3b;
+        }
+
+
+        .payment-item {
+
+            border: 1px solid #ddd;
+
+            border-radius: 12px;
+
+            padding: 18px;
+
+            margin-bottom: 15px;
+
+            background: #fafafa;
+        }
+
+
+        .payment-header {
+
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: center;
+
+            margin-bottom: 12px;
+
+            gap: 10px;
+        }
+
+
+        .transaction-id {
+            font-size: 13px;
+            color: #777;
+        }
+
+
+        .status {
+            background: #d1e7dd;
+
+            color: #0f5132;
+
+            padding: 5px 10px;
+
+            border-radius: 20px;
+
+            font-size: 13px;
+
+            font-weight: bold;
+        }
+
+
+        .payment-details {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(2, 1fr);
+
+            gap: 10px;
+
+            line-height: 1.6;
+        }
+
+
+        .detail-label {
+            color: #777;
+            font-size: 13px;
+        }
+
+
+        .detail-value {
+            font-weight: bold;
+        }
+
+
+        .amount {
+            color: #1769aa;
+
+            font-size: 18px;
+        }
+
+
+        .empty {
+
+            text-align: center;
+
+            padding: 45px 20px;
+
+            color: #777;
+        }
+
+
+        .empty-icon {
+            font-size: 50px;
+            margin-bottom: 15px;
+        }
+
+
+        .pay-btn {
+
+            display: inline-block;
+
+            margin-top: 18px;
+
+            background: #1769aa;
+
+            color: white;
+
+            padding: 12px 20px;
+
+            border-radius: 8px;
+
+            text-decoration: none;
+
+            font-weight: bold;
+        }
+
+
+        footer {
+
+            text-align: center;
+
+            padding: 25px;
+
+            color: #777;
+        }
+
+
+        @media (max-width: 600px) {
+
+            nav {
+                flex-direction: column;
+                gap: 12px;
+            }
+
+            .nav-links {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .payment-details {
+                grid-template-columns: 1fr;
+            }
+
+            .payment-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .top-bar {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+        }
+
+    </style>
+
 </head>
+
 
 <body>
 
-<header class="navbar">
 
-    <a class="brand" href="index.html">
-        Digital<span>Pay</span> Awareness
-    </a>
+<nav>
 
-    <a class="back-btn" href="dashboard.html">
-        ← Dashboard
-    </a>
-
-</header>
+    <div class="logo">
+        DigitalPay Awareness
+    </div>
 
 
-<main class="container">
+    <div class="nav-links">
 
-    <section class="header">
+        <a href="index.html">
+            Home
+        </a>
 
-        <div class="eyebrow">
-            TRANSACTION HISTORY
-        </div>
+        <a href="dashboard.html">
+            Dashboard
+        </a>
 
-        <h1>Payment History 🧾</h1>
+        <a href="payment.html">
+            Make Payment
+        </a>
 
-        <p class="subtitle">
-            Your simulated Digital Payment Awareness transactions.
+    </div>
+
+</nav>
+
+
+
+<div class="container">
+
+
+    <div class="title">
+
+        <h1>
+            📊 Payment History
+        </h1>
+
+        <p>
+            Your demo payment transactions
         </p>
 
-    </section>
+    </div>
 
 
-    <section class="history-box">
+    <div class="demo-warning">
+
+        ⚠️ These are <strong>demo transactions</strong>.
+        No real money has been transferred.
+
+    </div>
+
+
+
+    <div class="history-card">
+
+
+        <div class="top-bar">
+
+            <h2>
+                Transactions
+            </h2>
+
+
+            <button
+                class="clear-btn"
+                onclick="clearHistory()"
+            >
+                🗑 Clear History
+            </button>
+
+        </div>
+
+
 
         <div id="historyContainer"></div>
 
-        <button
-            class="clear-btn"
-            id="clearHistory"
-        >
-            Clear Demo History
-        </button>
 
-    </section>
-
-
-    <div class="note">
-        ⚠️ DEMO ONLY — These transactions are stored locally in
-        your browser. No real money, bank account, or UPI network
-        is connected.
     </div>
 
-</main>
+
+</div>
+
+
+
+<footer>
+
+    © 2026 DigitalPay Awareness |
+    College Project
+
+</footer>
+
 
 
 <script>
 
-// Check login
-
-if (
-    sessionStorage.getItem("digitalPayLoggedIn") !== "true"
-) {
-
-    window.location.href = "login.html";
-
-}
-
-
-// Current user
-
-const username =
-    sessionStorage.getItem(
-        "digitalPayUsername"
-    ) || "User";
-
-
-// Storage key
-
-const storageKey =
-    "demoPayments_" + username;
-
-
-// Container
-
-const historyContainer =
-    document.getElementById(
-        "historyContainer"
-    );
-
-
-// Load payments
 
 function loadHistory() {
 
-    const payments =
-        JSON.parse(
-            localStorage.getItem(storageKey)
-            || "[]"
+
+    const container =
+        document.getElementById(
+            "historyContainer"
         );
 
 
-    historyContainer.innerHTML = "";
+    let transactions =
+        JSON.parse(
+            localStorage.getItem(
+                "demoPayments"
+            )
+        ) || [];
 
 
-    if (payments.length === 0) {
+    container.innerHTML = "";
 
-        historyContainer.innerHTML = `
+
+    // No transactions
+
+    if (transactions.length === 0) {
+
+        container.innerHTML = `
 
             <div class="empty">
 
                 <div class="empty-icon">
-                    🧾
+                    📭
                 </div>
 
-                <h2>
-                    No payments yet
-                </h2>
+                <h3>
+                    No Payment History
+                </h3>
 
                 <p>
-                    Your successful demo payments
-                    will appear here.
+                    You have not made any
+                    demo payments yet.
                 </p>
 
                 <a
                     href="payment.html"
-                    style="
-                        display:inline-block;
-                        margin-top:15px;
-                        padding:12px 18px;
-                        background:#155eef;
-                        color:white;
-                        border-radius:10px;
-                        text-decoration:none;
-                        font-weight:800;
-                    "
+                    class="pay-btn"
                 >
-                    Make Demo Payment
+                    💳 Make Demo Payment
                 </a>
 
             </div>
@@ -319,115 +475,209 @@ function loadHistory() {
     }
 
 
-    // Newest payment first
+    // Display transactions
 
-    payments
-        .slice()
-        .reverse()
-        .forEach(function(payment) {
-
-            const card =
-                document.createElement("div");
-
-            card.className =
-                "payment-card";
+    transactions.forEach(function(transaction) {
 
 
-            card.innerHTML = `
+        const item =
+            document.createElement("div");
 
-                <div class="payment-top">
 
-                    <div>
+        item.className =
+            "payment-item";
 
-                        <div class="merchant">
-                            🏪 ${escapeHtml(payment.merchant)}
-                        </div>
 
-                        <span class="status">
-                            ✓ ${escapeHtml(payment.status)}
-                        </span>
+        item.innerHTML = `
 
-                    </div>
+            <div class="payment-header">
 
-                    <div class="amount">
-                        ₹${Number(payment.amount).toFixed(2)}
+                <div>
+
+                    <strong>
+                        ${escapeHTML(transaction.receiver)}
+                    </strong>
+
+                    <div class="transaction-id">
+
+                        Transaction ID:
+                        ${escapeHTML(transaction.id)}
+
                     </div>
 
                 </div>
 
 
-                <div class="details">
+                <span class="status">
 
-                    <div>
-                        <strong>Demo UPI ID:</strong>
-                        ${escapeHtml(payment.upiId)}
+                    ✓ ${escapeHTML(transaction.status)}
+
+                </span>
+
+            </div>
+
+
+
+            <div class="payment-details">
+
+
+                <div>
+
+                    <div class="detail-label">
+                        Sender
                     </div>
 
-                    <div>
-                        <strong>Transaction ID:</strong>
-                        ${escapeHtml(payment.transactionId)}
-                    </div>
-
-                    <div>
-                        <strong>Date:</strong>
-                        ${escapeHtml(payment.date)}
+                    <div class="detail-value">
+                        ${escapeHTML(transaction.name)}
                     </div>
 
                 </div>
 
-            `;
 
 
-            historyContainer.appendChild(card);
+                <div>
 
-        });
+                    <div class="detail-label">
+                        Amount
+                    </div>
+
+                    <div class="detail-value amount">
+
+                        ₹${Number(transaction.amount).toFixed(2)}
+
+                    </div>
+
+                </div>
+
+
+
+                <div>
+
+                    <div class="detail-label">
+                        UPI ID
+                    </div>
+
+                    <div class="detail-value">
+                        ${escapeHTML(transaction.upi)}
+                    </div>
+
+                </div>
+
+
+
+                <div>
+
+                    <div class="detail-label">
+                        Payment Method
+                    </div>
+
+                    <div class="detail-value">
+                        ${escapeHTML(transaction.method)}
+                    </div>
+
+                </div>
+
+
+
+                <div>
+
+                    <div class="detail-label">
+                        Date & Time
+                    </div>
+
+                    <div class="detail-value">
+                        ${escapeHTML(transaction.date)}
+                    </div>
+
+                </div>
+
+
+            </div>
+
+        `;
+
+
+        container.appendChild(item);
+
+    });
 
 }
+
 
 
 // Clear history
 
-document
-    .getElementById("clearHistory")
-    .addEventListener("click", function() {
-
-        const confirmClear =
-            confirm(
-                "Clear all demo payment history for this user?"
-            );
+function clearHistory() {
 
 
-        if (!confirmClear) {
-            return;
-        }
+    const transactions =
+        JSON.parse(
+            localStorage.getItem(
+                "demoPayments"
+            )
+        ) || [];
 
 
-        localStorage.removeItem(storageKey);
+    if (transactions.length === 0) {
+
+        alert(
+            "Payment history is already empty."
+        );
+
+        return;
+
+    }
+
+
+    const confirmation =
+        confirm(
+            "Are you sure you want to delete all demo payment history?"
+        );
+
+
+    if (confirmation) {
+
+        localStorage.removeItem(
+            "demoPayments"
+        );
+
 
         loadHistory();
 
-    });
 
+        alert(
+            "Demo payment history cleared."
+        );
 
-// Basic HTML escaping
-
-function escapeHtml(value) {
-
-    return String(value)
-        .replace(/&/g, "&amp;")
-        .replace(/</g, "&lt;")
-        .replace(/>/g, "&gt;")
-        .replace(/"/g, "&quot;")
-        .replace(/'/g, "&#039;");
+    }
 
 }
 
 
-// Initial load
+
+// Security helper
+
+function escapeHTML(value) {
+
+    const div =
+        document.createElement("div");
+
+    div.textContent =
+        String(value ?? "");
+
+    return div.innerHTML;
+
+}
+
+
+
+// Load history when page opens
 
 loadHistory();
 
+
 </script>
+
 
 </body>
 </html>
