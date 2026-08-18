@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Payment History | Digital Payment Awareness</title>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Inter, system-ui, -apple-system, "Segoe UI", Arial, sans-serif;
+    background: #f6f9ff;
+    color: #10213a;
+}
+
+.navbar {
+    background: #ffffff;
+    border-bottom: 1px solid #e4eaf2;
+    padding: 18px 7%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.brand {
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: 900;
+    color: #155eef;
+}
+
+.brand span {
+    color: #10213a;
+}
+
+.back-btn {
+    text-decoration: none;
+    color: #10213a;
+    border: 1px solid #dbe4f0;
+    padding: 10px 16px;
+    border-radius: 10px;
+    font-weight: 800;
+    background: white;
+}
+
+.container {
+    max-width: 950px;
+    margin: auto;
+    padding: 50px 6%;
+}
+
+.header {
+    margin-bottom: 30px;
+}
+
+.eyebrow {
+    color: #155eef;
+    font-size: 13px;
+    font-weight: 900;
+    letter-spacing: 1px;
+}
+
+h1 {
+    margin: 8px 0;
+    font-size: 32px;
+}
+
+.subtitle {
+    color: #617086;
+}
+
+.history-box {
+    background: white;
+    border: 1px solid #e4eaf2;
+    border-radius: 22px;
+    padding: 25px;
+    box-shadow: 0 18px 50px rgba(18,46,82,.08);
+}
+
+.payment-card {
+    border: 1px solid #e4eaf2;
+    border-radius: 15px;
+    padding: 20px;
+    margin-bottom: 15px;
+    background: #ffffff;
+}
+
+.payment-top {
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+    align-items: center;
+}
+
+.merchant {
+    font-size: 19px;
+    font-weight: 900;
+}
+
+.amount {
+    font-size: 20px;
+    font-weight: 900;
+    color: #155eef;
+}
+
+.status {
+    display: inline-block;
+    margin-top: 8px;
+    padding: 5px 10px;
+    border-radius: 20px;
+    background: #ecfdf3;
+    color: #087443;
+    font-size: 12px;
+    font-weight: 900;
+}
+
+.details {
+    margin-top: 15px;
+    padding-top: 15px;
+    border-top: 1px solid #edf1f6;
+    color: #617086;
+    font-size: 14px;
+    line-height: 1.8;
+}
+
+.empty {
+    text-align: center;
+    padding: 50px 20px;
+    color: #617086;
+}
+
+.empty-icon {
+    font-size: 50px;
+    margin-bottom: 10px;
+}
+
+.clear-btn {
+    margin-top: 20px;
+    padding: 11px 16px;
+    border: 1px solid #e0b4b4;
+    background: #fff5f5;
+    color: #a52222;
+    border-radius: 10px;
+    font-weight: 800;
+    cursor: pointer;
+}
+
+.note {
+    margin-top: 25px;
+    text-align: center;
+    color: #617086;
+    font-size: 12px;
+    line-height: 1.5;
+}
+
+@media (max-width: 600px) {
+
+    .payment-top {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    h1 {
+        font-size: 27px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header class="navbar">
+
+    <a class="brand" href="index.html">
+        Digital<span>Pay</span> Awareness
+    </a>
+
+    <a class="back-btn" href="dashboard.html">
+        ← Dashboard
+    </a>
+
+</header>
+
+
+<main class="container">
+
+    <section class="header">
+
+        <div class="eyebrow">
+            TRANSACTION HISTORY
+        </div>
+
+        <h1>Payment History 🧾</h1>
+
+        <p class="subtitle">
+            Your simulated Digital Payment Awareness transactions.
+        </p>
+
+    </section>
+
+
+    <section class="history-box">
+
+        <div id="historyContainer"></div>
+
+        <button
+            class="clear-btn"
+            id="clearHistory"
+        >
+            Clear Demo History
+        </button>
+
+    </section>
+
+
+    <div class="note">
+        ⚠️ DEMO ONLY — These transactions are stored locally in
+        your browser. No real money, bank account, or UPI network
+        is connected.
+    </div>
+
+</main>
+
+
+<script>
+
+// Check login
+
+if (
+    sessionStorage.getItem("digitalPayLoggedIn") !== "true"
+) {
+
+    window.location.href = "login.html";
+
+}
+
+
+// Current user
+
+const username =
+    sessionStorage.getItem(
+        "digitalPayUsername"
+    ) || "User";
+
+
+// Storage key
+
+const storageKey =
+    "demoPayments_" + username;
+
+
+// Container
+
+const historyContainer =
+    document.getElementById(
+        "historyContainer"
+    );
+
+
+// Load payments
+
+function loadHistory() {
+
+    const payments =
+        JSON.parse(
+            localStorage.getItem(storageKey)
+            || "[]"
+        );
+
+
+    historyContainer.innerHTML = "";
+
+
+    if (payments.length === 0) {
+
+        historyContainer.innerHTML = `
+
+            <div class="empty">
+
+                <div class="empty-icon">
+                    🧾
+                </div>
+
+                <h2>
+                    No payments yet
+                </h2>
+
+                <p>
+                    Your successful demo payments
+                    will appear here.
+                </p>
+
+                <a
+                    href="payment.html"
+                    style="
+                        display:inline-block;
+                        margin-top:15px;
+                        padding:12px 18px;
+                        background:#155eef;
+                        color:white;
+                        border-radius:10px;
+                        text-decoration:none;
+                        font-weight:800;
+                    "
+                >
+                    Make Demo Payment
+                </a>
+
+            </div>
+
+        `;
+
+        return;
+    }
+
+
+    // Newest payment first
+
+    payments
+        .slice()
+        .reverse()
+        .forEach(function(payment) {
+
+            const card =
+                document.createElement("div");
+
+            card.className =
+                "payment-card";
+
+
+            card.innerHTML = `
+
+                <div class="payment-top">
+
+                    <div>
+
+                        <div class="merchant">
+                            🏪 ${escapeHtml(payment.merchant)}
+                        </div>
+
+                        <span class="status">
+                            ✓ ${escapeHtml(payment.status)}
+                        </span>
+
+                    </div>
+
+                    <div class="amount">
+                        ₹${Number(payment.amount).toFixed(2)}
+                    </div>
+
+                </div>
+
+
+                <div class="details">
+
+                    <div>
+                        <strong>Demo UPI ID:</strong>
+                        ${escapeHtml(payment.upiId)}
+                    </div>
+
+                    <div>
+                        <strong>Transaction ID:</strong>
+                        ${escapeHtml(payment.transactionId)}
+                    </div>
+
+                    <div>
+                        <strong>Date:</strong>
+                        ${escapeHtml(payment.date)}
+                    </div>
+
+                </div>
+
+            `;
+
+
+            historyContainer.appendChild(card);
+
+        });
+
+}
+
+
+// Clear history
+
+document
+    .getElementById("clearHistory")
+    .addEventListener("click", function() {
+
+        const confirmClear =
+            confirm(
+                "Clear all demo payment history for this user?"
+            );
+
+
+        if (!confirmClear) {
+            return;
+        }
+
+
+        localStorage.removeItem(storageKey);
+
+        loadHistory();
+
+    });
+
+
+// Basic HTML escaping
+
+function escapeHtml(value) {
+
+    return String(value)
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;");
+
+}
+
+
+// Initial load
+
+loadHistory();
+
+</script>
+
+</body>
+</html>
