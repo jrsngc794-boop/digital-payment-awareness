@@ -53,7 +53,7 @@ document.addEventListener("DOMContentLoaded", function () {
             try {
 
                 const response = await fetch(
-                    "https://digital-payment-awareness.onrender.com/api/register"
+                    "https://digital-payment-awareness.onrender.com/api/register",
                     {
                         method: "POST",
 
@@ -141,7 +141,7 @@ document.addEventListener("DOMContentLoaded", function () {
             try {
 
                 const response = await fetch(
-                    "https://digital-payment-awareness.onrender.com/api/login"
+                    "https://digital-payment-awareness.onrender.com/api/login",
                     {
                         method: "POST",
 
