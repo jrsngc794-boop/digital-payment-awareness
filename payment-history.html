@@ -3,207 +3,212 @@
 
 <head>
 
-<meta charset="UTF-8">
+    <meta charset="UTF-8">
 
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
 
-<title>Payment History | DigitalPay Awareness</title>
+    <title>Payment History | DigitalPay Awareness</title>
 
-<style>
+    <style>
 
-*{
-    box-sizing:border-box;
-}
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
 
-body{
-    margin:0;
-    font-family:Arial, sans-serif;
-    background:#f5f8ff;
-    color:#10213a;
-}
+        body {
+            font-family: Arial, sans-serif;
+            background: #f5f8ff;
+            color: #10213a;
+        }
 
-.navbar{
-    background:white;
-    border-bottom:1px solid #e4eaf2;
-    padding:18px 7%;
+        .navbar {
+            background: white;
+            padding: 18px 7%;
+            border-bottom: 1px solid #e4eaf2;
 
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-}
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
 
-.logo{
-    font-size:21px;
-    font-weight:900;
-    color:#155eef;
-}
+        .logo {
+            font-size: 21px;
+            font-weight: bold;
+            color: #155eef;
+        }
 
-.nav-links{
-    display:flex;
-    gap:15px;
-}
+        .nav-links {
+            display: flex;
+            gap: 15px;
+        }
 
-.nav-links a{
-    text-decoration:none;
-    color:#10213a;
-    font-weight:bold;
-}
+        .nav-links a {
+            text-decoration: none;
+            color: #10213a;
+            font-weight: bold;
+        }
 
-.container{
-    max-width:1000px;
-    margin:40px auto;
-    padding:0 7%;
-}
+        .container {
+            width: 92%;
+            max-width: 1000px;
+            margin: 40px auto;
+        }
 
-.title{
-    text-align:center;
-    margin-bottom:25px;
-}
+        .title {
+            text-align: center;
+            margin-bottom: 25px;
+        }
 
-.title h1{
-    color:#155eef;
-}
+        .title h1 {
+            color: #155eef;
+            margin-bottom: 8px;
+        }
 
-.warning{
-    background:#fff3cd;
-    border:1px solid #ffe69c;
-    padding:14px;
-    border-radius:10px;
-    text-align:center;
-    margin-bottom:25px;
-}
+        .title p {
+            color: #617086;
+        }
 
-.history-card{
-    background:white;
-    border:1px solid #e4eaf2;
-    border-radius:20px;
-    padding:25px;
+        .card {
+            background: white;
+            padding: 25px;
+            border-radius: 20px;
+            border: 1px solid #e4eaf2;
 
-    box-shadow:
-        0 10px 30px
-        rgba(18,46,82,.08);
-}
+            box-shadow:
+                0 10px 30px
+                rgba(18,46,82,.08);
+        }
 
-.top{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    margin-bottom:20px;
-}
+        .top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
 
-.clear-btn{
-    border:none;
-    background:#dc3545;
-    color:white;
-    padding:10px 15px;
-    border-radius:8px;
-    cursor:pointer;
-    font-weight:bold;
-}
+        .clear-btn {
+            background: #dc3545;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: bold;
+        }
 
-.payment{
-    border:1px solid #e1e6ee;
-    border-radius:15px;
-    padding:20px;
-    margin-bottom:15px;
-    background:#fafcff;
-}
+        .payment {
+            border: 1px solid #e1e7ef;
+            border-radius: 14px;
+            padding: 18px;
+            margin-bottom: 15px;
+            background: #fafcff;
+        }
 
-.payment-top{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    margin-bottom:15px;
-}
+        .payment-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
 
-.receiver{
-    font-size:19px;
-    font-weight:bold;
-}
+        .receiver {
+            font-size: 18px;
+            font-weight: bold;
+        }
 
-.status{
-    background:#d1e7dd;
-    color:#0f5132;
-    padding:6px 12px;
-    border-radius:20px;
-    font-size:13px;
-    font-weight:bold;
-}
+        .status {
+            background: #d1e7dd;
+            color: #0f5132;
+            padding: 6px 10px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: bold;
+        }
 
-.details{
-    display:grid;
-    grid-template-columns:repeat(2,1fr);
-    gap:12px;
-}
+        .details {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+        }
 
-.label{
-    color:#718096;
-    font-size:13px;
-}
+        .detail {
+            padding: 8px 0;
+        }
 
-.value{
-    font-weight:bold;
-    margin-top:3px;
-}
+        .label {
+            color: #718096;
+            font-size: 13px;
+            margin-bottom: 4px;
+        }
 
-.amount{
-    color:#155eef;
-    font-size:19px;
-}
+        .value {
+            font-weight: bold;
+        }
 
-.empty{
-    text-align:center;
-    padding:45px 20px;
-    color:#718096;
-}
+        .amount {
+            color: #155eef;
+            font-size: 19px;
+        }
 
-.empty-icon{
-    font-size:50px;
-}
+        .empty {
+            text-align: center;
+            padding: 50px 20px;
+            color: #718096;
+        }
 
-.pay-btn{
-    display:inline-block;
-    margin-top:15px;
-    padding:12px 20px;
-    background:#155eef;
-    color:white;
-    text-decoration:none;
-    border-radius:9px;
-    font-weight:bold;
-}
+        .empty-icon {
+            font-size: 50px;
+            margin-bottom: 15px;
+        }
 
-footer{
-    text-align:center;
-    padding:30px;
-    color:#718096;
-}
+        .pay-btn {
+            display: inline-block;
+            margin-top: 18px;
+            padding: 12px 20px;
+            background: #155eef;
+            color: white;
+            text-decoration: none;
+            border-radius: 9px;
+            font-weight: bold;
+        }
 
-@media(max-width:650px){
+        footer {
+            text-align: center;
+            padding: 30px;
+            color: #718096;
+        }
 
-    .navbar{
-        flex-direction:column;
-        gap:15px;
-    }
+        @media(max-width:650px) {
 
-    .details{
-        grid-template-columns:1fr;
-    }
+            .navbar {
+                flex-direction: column;
+                gap: 12px;
+            }
 
-    .payment-top{
-        flex-direction:column;
-        align-items:flex-start;
-        gap:10px;
-    }
+            .details {
+                grid-template-columns: 1fr;
+            }
 
-    .top{
-        flex-direction:column;
-        align-items:flex-start;
-        gap:15px;
-    }
+            .payment-top {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+            }
 
-}
+            .top {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 15px;
+            }
 
-</style>
+        }
+
+    </style>
 
 </head>
 
@@ -211,7 +216,7 @@ footer{
 <body>
 
 
-<header class="navbar">
+<nav class="navbar">
 
     <div class="logo">
         DigitalPay Awareness
@@ -229,12 +234,11 @@ footer{
 
     </div>
 
-</header>
+</nav>
 
 
 
 <div class="container">
-
 
     <div class="title">
 
@@ -249,22 +253,12 @@ footer{
     </div>
 
 
-    <div class="warning">
-
-        ⚠️ This is a do payment system.
-        No real money is transferred.
-
-    </div>
-
-
-
-    <div class="history-card">
-
+    <div class="card">
 
         <div class="top">
 
             <h2>
-                Transactions
+                Recent Transactions
             </h2>
 
             <button
@@ -277,8 +271,7 @@ footer{
         </div>
 
 
-        <div id="historyContainer"></div>
-
+        <div id="history"></div>
 
     </div>
 
@@ -288,8 +281,16 @@ footer{
 
 <footer>
 
-    Digital Payment Awareness |
-    College Project
+    <p>
+        Digital Payment Awareness |
+        College Project
+    </p>
+
+    <p>
+        <small>
+            This is a do. No real money is transferred.
+        </small>
+    </p>
 
 </footer>
 
@@ -302,69 +303,38 @@ footer{
    LOAD PAYMENT HISTORY
 ========================================== */
 
-function loadHistory(){
+function loadHistory() {
 
-    const container =
-        document.getElementById(
-            "historyContainer"
-        );
+    const history =
+        document.getElementById("history");
 
 
     /*
        Get saved payments from browser
     */
 
-    const savedData =
-        localStorage.getItem(
-            "doPayments"
-        );
+    const payments =
+        JSON.parse(
+            localStorage.getItem("doPayments")
+        ) || [];
 
 
     console.log(
-        "Saved payment data:",
-        savedData
+        "Payments found:",
+        payments
     );
 
 
-    let transactions = [];
+    history.innerHTML = "";
 
 
-    if(savedData){
+    /* ==========================================
+       NO PAYMENTS
+    ========================================== */
 
-        try{
+    if (payments.length === 0) {
 
-            transactions =
-                JSON.parse(savedData);
-
-        }
-
-        catch(error){
-
-            console.error(
-                "Payment data error:",
-                error
-            );
-
-            transactions = [];
-
-        }
-
-    }
-
-
-    container.innerHTML = "";
-
-
-    /* ======================================
-       NO TRANSACTIONS
-    ====================================== */
-
-    if(
-        !Array.isArray(transactions) ||
-        transactions.length === 0
-    ){
-
-        container.innerHTML = `
+        history.innerHTML = `
 
             <div class="empty">
 
@@ -378,7 +348,7 @@ function loadHistory(){
 
                 <p>
                     No do payment has been
-                    recorded in this browser.
+                    recorded yet.
                 </p>
 
                 <a
@@ -393,61 +363,54 @@ function loadHistory(){
         `;
 
         return;
-
     }
 
 
-    /* ======================================
-       DISPLAY TRANSACTIONS
-    ====================================== */
+    /* ==========================================
+       DISPLAY PAYMENTS
+    ========================================== */
 
-    transactions.forEach(
-        function(transaction){
+    payments.forEach(function(payment) {
 
-            const payment =
-                document.createElement(
-                    "div"
-                );
+        const item =
+            document.createElement("div");
 
 
-            payment.className =
-                "payment";
+        item.className = "payment";
 
 
-            payment.innerHTML = `
+        item.innerHTML = `
 
-                <div class="payment-top">
+            <div class="payment-top">
 
-                    <div>
+                <div class="receiver">
 
-                        <div class="receiver">
+                    🏪
+                    ${escapeHTML(payment.receiver)}
 
-                            🏪
-                            ${escapeHTML(
-                                transaction.receiver
-                            )}
+                </div>
 
-                        </div>
+                <div class="status">
 
-                        <small>
+                    ✓ ${escapeHTML(payment.status)}
 
-                            Transaction ID:
-                            ${escapeHTML(
-                                transaction.id
-                            )}
+                </div>
 
-                        </small>
+            </div>
 
+
+            <div class="details">
+
+
+                <div class="detail">
+
+                    <div class="label">
+                        Transaction ID
                     </div>
 
+                    <div class="value">
 
-                    <div class="status">
-
-                        ✓
-                        ${escapeHTML(
-                            transaction.status ||
-                            "Successful"
-                        )}
+                        ${escapeHTML(payment.id)}
 
                     </div>
 
@@ -455,109 +418,93 @@ function loadHistory(){
 
 
 
-                <div class="details">
+                <div class="detail">
 
-
-                    <div>
-
-                        <div class="label">
-                            Sender
-                        </div>
-
-                        <div class="value">
-
-                            ${escapeHTML(
-                                transaction.name
-                            )}
-
-                        </div>
-
+                    <div class="label">
+                        Amount
                     </div>
 
+                    <div class="value amount">
 
-
-                    <div>
-
-                        <div class="label">
-                            Amount
-                        </div>
-
-                        <div class="value amount">
-
-                            ₹${Number(
-                                transaction.amount
-                            ).toFixed(2)}
-
-                        </div>
+                        ₹${Number(payment.amount).toFixed(2)}
 
                     </div>
-
-
-
-                    <div>
-
-                        <div class="label">
-                            UPI ID
-                        </div>
-
-                        <div class="value">
-
-                            ${escapeHTML(
-                                transaction.upi
-                            )}
-
-                        </div>
-
-                    </div>
-
-
-
-                    <div>
-
-                        <div class="label">
-                            Payment Method
-                        </div>
-
-                        <div class="value">
-
-                            ${escapeHTML(
-                                transaction.method
-                            )}
-
-                        </div>
-
-                    </div>
-
-
-
-                    <div>
-
-                        <div class="label">
-                            Date & Time
-                        </div>
-
-                        <div class="value">
-
-                            ${escapeHTML(
-                                transaction.date
-                            )}
-
-                        </div>
-
-                    </div>
-
 
                 </div>
 
-            `;
 
 
-            container.appendChild(
-                payment
-            );
+                <div class="detail">
 
-        }
-    );
+                    <div class="label">
+                        Sender
+                    </div>
+
+                    <div class="value">
+
+                        ${escapeHTML(payment.name)}
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="detail">
+
+                    <div class="label">
+                        UPI ID
+                    </div>
+
+                    <div class="value">
+
+                        ${escapeHTML(payment.upi)}
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="detail">
+
+                    <div class="label">
+                        Payment Method
+                    </div>
+
+                    <div class="value">
+
+                        ${escapeHTML(payment.method)}
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="detail">
+
+                    <div class="label">
+                        Date & Time
+                    </div>
+
+                    <div class="value">
+
+                        ${escapeHTML(payment.date)}
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+        `;
+
+
+        history.appendChild(item);
+
+    });
 
 }
 
@@ -567,15 +514,31 @@ function loadHistory(){
    CLEAR HISTORY
 ========================================== */
 
-function clearHistory(){
+function clearHistory() {
 
-    const confirmation =
+    const payments =
+        JSON.parse(
+            localStorage.getItem("demoPayments")
+        ) || [];
+
+
+    if (payments.length === 0) {
+
+        alert(
+            "Payment history is already empty."
+        );
+
+        return;
+    }
+
+
+    const answer =
         confirm(
-            "Delete all do payment history?"
+            "Are you sure you want to delete all payment history?"
         );
 
 
-    if(confirmation){
+    if (answer) {
 
         localStorage.removeItem(
             "doPayments"
@@ -596,22 +559,16 @@ function clearHistory(){
 
 
 /* ==========================================
-   SECURITY
+   SECURITY FUNCTION
 ========================================== */
 
-function escapeHTML(value){
+function escapeHTML(value) {
 
     const div =
-        document.createElement(
-            "div"
-        );
-
+        document.createElement("div");
 
     div.textContent =
-        String(
-            value ?? ""
-        );
-
+        String(value ?? "");
 
     return div.innerHTML;
 
@@ -625,8 +582,8 @@ function escapeHTML(value){
 
 loadHistory();
 
-</script>
 
+</script>
 
 </body>
 
