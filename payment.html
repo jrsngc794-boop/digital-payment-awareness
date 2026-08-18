@@ -1,0 +1,689 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Demo Payment | Digital Payment Awareness</title>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Inter, system-ui, -apple-system, "Segoe UI", Arial, sans-serif;
+    background: #f6f9ff;
+    color: #10213a;
+}
+
+.navbar {
+    background: #ffffff;
+    border-bottom: 1px solid #e4eaf2;
+    padding: 18px 7%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.brand {
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: 900;
+    color: #155eef;
+}
+
+.brand span {
+    color: #10213a;
+}
+
+.back-btn {
+    text-decoration: none;
+    color: #10213a;
+    border: 1px solid #dbe4f0;
+    padding: 10px 16px;
+    border-radius: 10px;
+    font-weight: 800;
+    background: white;
+}
+
+.container {
+    max-width: 650px;
+    margin: auto;
+    padding: 50px 6%;
+}
+
+.payment-box {
+    background: white;
+    border: 1px solid #e4eaf2;
+    border-radius: 22px;
+    padding: 35px;
+    box-shadow: 0 18px 50px rgba(18, 46, 82, 0.10);
+}
+
+.eyebrow {
+    color: #155eef;
+    font-size: 13px;
+    font-weight: 900;
+    letter-spacing: 1px;
+}
+
+h1 {
+    margin: 8px 0;
+    font-size: 32px;
+}
+
+.subtitle {
+    color: #617086;
+    line-height: 1.6;
+}
+
+.store-card {
+    margin: 25px 0;
+    padding: 20px;
+    border-radius: 15px;
+    background: #eef4ff;
+}
+
+.store-card h2 {
+    margin: 0 0 5px;
+}
+
+.store-card p {
+    margin: 5px 0;
+    color: #617086;
+}
+
+label {
+    display: block;
+    margin-top: 18px;
+    font-weight: 800;
+}
+
+input {
+    width: 100%;
+    padding: 14px;
+    margin-top: 8px;
+    border: 1px solid #ccd6e4;
+    border-radius: 10px;
+    font-size: 15px;
+    outline: none;
+}
+
+input:focus {
+    border-color: #155eef;
+}
+
+.hint {
+    font-size: 12px;
+    color: #617086;
+    margin-top: 6px;
+}
+
+.btn {
+    width: 100%;
+    margin-top: 25px;
+    padding: 14px;
+    border: 0;
+    border-radius: 10px;
+    background: #155eef;
+    color: white;
+    font-size: 16px;
+    font-weight: 900;
+    cursor: pointer;
+}
+
+.btn:hover {
+    opacity: 0.92;
+}
+
+.message {
+    margin-top: 18px;
+    padding: 14px;
+    border-radius: 10px;
+    display: none;
+    font-weight: 700;
+}
+
+.info {
+    background: #eef4ff;
+    color: #155eef;
+}
+
+.error {
+    background: #fff0f0;
+    color: #c62828;
+}
+
+.success {
+    background: #ecfdf3;
+    color: #087443;
+}
+
+.otp-section {
+    display: none;
+    margin-top: 25px;
+    padding-top: 20px;
+    border-top: 1px solid #e4eaf2;
+}
+
+.demo-otp {
+    margin-top: 12px;
+    padding: 14px;
+    border-radius: 10px;
+    background: #fff8e1;
+    color: #8a5a00;
+    font-weight: 900;
+    text-align: center;
+}
+
+.success-box {
+    display: none;
+    text-align: center;
+}
+
+.success-icon {
+    font-size: 60px;
+}
+
+.success-box h2 {
+    color: #087443;
+}
+
+.transaction {
+    margin-top: 20px;
+    background: #f6f9ff;
+    border-radius: 14px;
+    padding: 18px;
+    text-align: left;
+}
+
+.transaction p {
+    margin: 8px 0;
+}
+
+.small-note {
+    margin-top: 25px;
+    font-size: 12px;
+    color: #617086;
+    text-align: center;
+    line-height: 1.5;
+}
+
+@media (max-width: 600px) {
+    .payment-box {
+        padding: 25px 20px;
+    }
+
+    h1 {
+        font-size: 27px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header class="navbar">
+
+    <a class="brand" href="index.html">
+        Digital<span>Pay</span> Awareness
+    </a>
+
+    <a class="back-btn" href="dashboard.html">
+        ← Dashboard
+    </a>
+
+</header>
+
+
+<main class="container">
+
+    <div class="payment-box">
+
+        <!-- PAYMENT FORM -->
+
+        <div id="paymentFormSection">
+
+            <div class="eyebrow">
+                DEMO PAYMENT
+            </div>
+
+            <h1>Pay General Store 💳</h1>
+
+            <p class="subtitle">
+                This is a simulated payment for your college project.
+                No real money or bank account is involved.
+            </p>
+
+
+            <div class="store-card">
+
+                <h2>🏪 General Store</h2>
+
+                <p>Demo Merchant</p>
+
+                <p>
+                    UPI payments are simulated for educational purposes.
+                </p>
+
+            </div>
+
+
+            <label for="upiId">
+                Demo UPI ID
+            </label>
+
+            <input
+                type="text"
+                id="upiId"
+                placeholder="Example: XYZ@123456"
+                autocomplete="off"
+            >
+
+            <div class="hint">
+                Use any demo UPI ID. Example: XYZ@123456
+            </div>
+
+
+            <label for="amount">
+                Amount (₹)
+            </label>
+
+            <input
+                type="number"
+                id="amount"
+                placeholder="Enter amount"
+                min="1"
+                step="1"
+            >
+
+            <div class="hint">
+                This amount is only displayed as a demo transaction.
+            </div>
+
+
+            <button
+                class="btn"
+                id="payButton"
+            >
+                Continue Demo Payment
+            </button>
+
+
+            <div
+                class="message"
+                id="message"
+            ></div>
+
+
+            <!-- OTP SECTION -->
+
+            <div
+                class="otp-section"
+                id="otpSection"
+            >
+
+                <h3>Demo OTP Verification</h3>
+
+                <p>
+                    A simulated OTP has been generated for this
+                    college project.
+                </p>
+
+                <div
+                    class="demo-otp"
+                    id="demoOtp"
+                >
+                    Demo OTP: ------
+                </div>
+
+
+                <label for="otp">
+                    Enter Demo OTP
+                </label>
+
+                <input
+                    type="text"
+                    id="otp"
+                    maxlength="6"
+                    placeholder="Enter 6-digit demo OTP"
+                    inputmode="numeric"
+                    autocomplete="off"
+                >
+
+
+                <button
+                    class="btn"
+                    id="verifyButton"
+                >
+                    Verify & Complete Demo Payment
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- SUCCESS SECTION -->
+
+        <div
+            class="success-box"
+            id="successBox"
+        >
+
+            <div class="success-icon">
+                ✅
+            </div>
+
+            <h2>
+                Payment Successful!
+            </h2>
+
+            <p>
+                Your demo payment was completed successfully.
+            </p>
+
+
+            <div class="transaction">
+
+                <p>
+                    <strong>Merchant:</strong>
+                    General Store
+                </p>
+
+                <p>
+                    <strong>UPI ID:</strong>
+                    <span id="successUpi"></span>
+                </p>
+
+                <p>
+                    <strong>Amount:</strong>
+                    ₹<span id="successAmount"></span>
+                </p>
+
+                <p>
+                    <strong>Status:</strong>
+                    <span style="color:#087443;">
+                        Successful
+                    </span>
+                </p>
+
+                <p>
+                    <strong>Transaction ID:</strong>
+                    <span id="transactionId"></span>
+                </p>
+
+            </div>
+
+
+            <a
+                class="btn"
+                href="dashboard.html"
+                style="display:block;text-align:center;text-decoration:none;"
+            >
+                Back to Dashboard
+            </a>
+
+        </div>
+
+
+        <div class="small-note">
+
+            ⚠️ DEMO ONLY — This payment system does not connect
+            to any bank, UPI network, wallet, card, or real payment service.
+
+        </div>
+
+    </div>
+
+</main>
+
+
+<script>
+
+/*
+    DEMO PAYMENT SYSTEM
+
+    No real payment is processed.
+*/
+
+
+// Check login
+
+if (
+    sessionStorage.getItem("digitalPayLoggedIn") !== "true"
+) {
+
+    window.location.href = "login.html";
+
+}
+
+
+// Elements
+
+const payButton =
+    document.getElementById("payButton");
+
+const verifyButton =
+    document.getElementById("verifyButton");
+
+const upiInput =
+    document.getElementById("upiId");
+
+const amountInput =
+    document.getElementById("amount");
+
+const message =
+    document.getElementById("message");
+
+const otpSection =
+    document.getElementById("otpSection");
+
+const demoOtp =
+    document.getElementById("demoOtp");
+
+const otpInput =
+    document.getElementById("otp");
+
+const paymentFormSection =
+    document.getElementById("paymentFormSection");
+
+const successBox =
+    document.getElementById("successBox");
+
+
+// Temporary demo OTP
+
+let generatedOtp = "";
+
+
+// Continue Payment
+
+payButton.addEventListener("click", function () {
+
+    const upiId =
+        upiInput.value.trim();
+
+    const amount =
+        amountInput.value.trim();
+
+
+    if (!upiId) {
+
+        showMessage(
+            "Please enter a demo UPI ID.",
+            "error"
+        );
+
+        return;
+    }
+
+
+    if (!amount || Number(amount) <= 0) {
+
+        showMessage(
+            "Please enter a valid demo amount.",
+            "error"
+        );
+
+        return;
+    }
+
+
+    // Generate a random 6-digit demo OTP
+
+    generatedOtp =
+        Math.floor(
+            100000 + Math.random() * 900000
+        ).toString();
+
+
+    demoOtp.textContent =
+        "Demo OTP: " + generatedOtp;
+
+
+    otpSection.style.display =
+        "block";
+
+
+    showMessage(
+        "Demo payment created. Enter the displayed demo OTP.",
+        "info"
+    );
+
+});
+
+
+// Verify OTP
+
+verifyButton.addEventListener("click", function () {
+
+    const enteredOtp =
+        otpInput.value.trim();
+
+
+    if (!enteredOtp) {
+
+        showMessage(
+            "Please enter the demo OTP.",
+            "error"
+        );
+
+        return;
+    }
+
+
+    if (enteredOtp !== generatedOtp) {
+
+        showMessage(
+            "Incorrect demo OTP. Please enter the OTP shown above.",
+            "error"
+        );
+
+        return;
+    }
+
+
+    // Payment successful
+
+    const upiId =
+        upiInput.value.trim();
+
+    const amount =
+        amountInput.value.trim();
+
+
+    const transactionId =
+        "DEMO" +
+        Date.now().toString().slice(-10);
+
+
+    document.getElementById(
+        "successUpi"
+    ).textContent = upiId;
+
+
+    document.getElementById(
+        "successAmount"
+    ).textContent =
+        Number(amount).toFixed(2);
+
+
+    document.getElementById(
+        "transactionId"
+    ).textContent =
+        transactionId;
+
+
+    // Save demo transaction
+
+    const username =
+        sessionStorage.getItem(
+            "digitalPayUsername"
+        ) || "User";
+
+
+    const oldPayments =
+        JSON.parse(
+            localStorage.getItem(
+                "demoPayments_" + username
+            ) || "[]"
+        );
+
+
+    oldPayments.push({
+
+        merchant: "General Store",
+
+        upiId: upiId,
+
+        amount: Number(amount),
+
+        transactionId: transactionId,
+
+        status: "Successful",
+
+        date: new Date().toLocaleString()
+
+    });
+
+
+    localStorage.setItem(
+
+        "demoPayments_" + username,
+
+        JSON.stringify(oldPayments)
+
+    );
+
+
+    paymentFormSection.style.display =
+        "none";
+
+
+    successBox.style.display =
+        "block";
+
+});
+
+
+// Message helper
+
+function showMessage(text, type) {
+
+    message.textContent = text;
+
+    message.className =
+        "message " + type;
+
+    message.style.display =
+        "block";
+
+}
+
+</script>
+
+</body>
+</html>
