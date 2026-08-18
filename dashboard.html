@@ -2,35 +2,324 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Dashboard | Digital Payment Awareness</title>
+
 <style>
-body{margin:0;font-family:Inter,system-ui,-apple-system,"Segoe UI",Arial,sans-serif;background:#f6f9ff;color:#10213a}
-.wrap{max-width:900px;margin:auto;padding:70px 7%}
-.box{background:#fff;border:1px solid #e4eaf2;border-radius:22px;padding:35px;box-shadow:0 18px 50px rgba(18,46,82,.10)}
-h1{color:#155eef}.card{margin-top:20px;padding:22px;border-radius:15px;background:#eef4ff}
-button,a{display:inline-block;margin-top:20px;padding:12px 18px;border-radius:10px;font-weight:800}
-button{border:0;background:#155eef;color:#fff}a{background:#fff;border:1px solid #dbe4f0;color:#10213a;text-decoration:none;margin-left:8px}
-small{color:#617086}
+*{
+    box-sizing:border-box;
+}
+
+body{
+    margin:0;
+    font-family:Inter,system-ui,-apple-system,"Segoe UI",Arial,sans-serif;
+    background:#f6f9ff;
+    color:#10213a;
+}
+
+.navbar{
+    background:#ffffff;
+    border-bottom:1px solid #e4eaf2;
+    padding:18px 7%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.brand{
+    font-size:20px;
+    font-weight:900;
+    color:#155eef;
+}
+
+.brand span{
+    color:#10213a;
+}
+
+.logout-top{
+    border:0;
+    background:#155eef;
+    color:white;
+    padding:10px 18px;
+    border-radius:10px;
+    font-weight:800;
+    cursor:pointer;
+}
+
+.wrap{
+    max-width:1000px;
+    margin:auto;
+    padding:50px 7%;
+}
+
+.welcome{
+    margin-bottom:30px;
+}
+
+.welcome h1{
+    margin-bottom:8px;
+    color:#155eef;
+}
+
+.welcome p{
+    color:#617086;
+}
+
+.grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:20px;
+}
+
+.card{
+    background:#ffffff;
+    border:1px solid #e4eaf2;
+    border-radius:20px;
+    padding:28px;
+    box-shadow:0 12px 35px rgba(18,46,82,.08);
+    transition:transform .2s, box-shadow .2s;
+}
+
+.card:hover{
+    transform:translateY(-3px);
+    box-shadow:0 18px 45px rgba(18,46,82,.12);
+}
+
+.icon{
+    font-size:35px;
+    margin-bottom:12px;
+}
+
+.card h2{
+    margin:8px 0;
+}
+
+.card p{
+    color:#617086;
+    line-height:1.6;
+}
+
+.btn{
+    display:inline-block;
+    margin-top:12px;
+    padding:12px 18px;
+    border-radius:10px;
+    font-weight:800;
+    text-decoration:none;
+    cursor:pointer;
+}
+
+.primary{
+    background:#155eef;
+    color:#ffffff;
+    border:0;
+}
+
+.secondary{
+    background:#ffffff;
+    color:#10213a;
+    border:1px solid #dbe4f0;
+}
+
+.profile-info{
+    background:#eef4ff;
+    padding:15px;
+    border-radius:12px;
+    margin-top:15px;
+}
+
+footer{
+    text-align:center;
+    padding:30px 7%;
+    color:#617086;
+}
+
+@media(max-width:700px){
+    .grid{
+        grid-template-columns:1fr;
+    }
+
+    .navbar{
+        padding:16px 5%;
+    }
+
+    .wrap{
+        padding:40px 5%;
+    }
+}
 </style>
 </head>
+
 <body>
-<div class="wrap"><div class="box">
-<div style="font-weight:900;color:#155eef">DIGITALPAY AWARENESS</div>
-<h1>Admin Dashboard</h1>
-<p id="welcome">Welcome!</p>
-<div class="card">
-<h2>📊 Google Form Responses</h2>
-<p>Your Google Form is connected through the Join With Us page.</p>
-<p><small>Form responses are not automatically displayed here yet. This page is the destination after the demo login.</small></p>
-<a href="https://forms.gle/Ksjkbwx3noKKWQ9b7" target="_blank">Open Google Form</a>
-</div>
-<button id="logout">Logout</button>
-<a href="index.html">Back to Website</a>
-</div></div>
+
+<header class="navbar">
+
+    <div class="brand">
+        Digital<span>Pay</span> Awareness
+    </div>
+
+    <button class="logout-top" id="logoutTop">
+        Logout
+    </button>
+
+</header>
+
+
+<main class="wrap">
+
+    <section class="welcome">
+
+        <h1>Welcome, <span id="username">User</span>! 👋</h1>
+
+        <p>
+            Welcome to your Digital Payment Awareness dashboard.
+        </p>
+
+    </section>
+
+
+    <section class="grid">
+
+        <!-- PROFILE -->
+
+        <div class="card">
+
+            <div class="icon">👤</div>
+
+            <h2>My Profile</h2>
+
+            <p>
+                View your account information.
+            </p>
+
+            <div class="profile-info">
+
+                <strong>Username:</strong>
+                <span id="profileUsername">User</span>
+
+            </div>
+
+        </div>
+
+
+        <!-- GOOGLE FORM -->
+
+        <div class="card">
+
+            <div class="icon">📊</div>
+
+            <h2>Google Form / Survey</h2>
+
+            <p>
+                Participate in our Digital Payment Awareness survey.
+            </p>
+
+            <a
+                class="btn secondary"
+                href="https://forms.gle/Ksjkbwx3noKKWQ9b7"
+                target="_blank"
+            >
+                Open Survey
+            </a>
+
+        </div>
+
+
+        <!-- DEMO PAYMENT -->
+
+        <div class="card">
+
+            <div class="icon">💳</div>
+
+            <h2>Demo Payment</h2>
+
+            <p>
+                Make a simulated payment to a General Store.
+                This is only for the college project.
+            </p>
+
+            <a
+                class="btn primary"
+                href="payment.html"
+            >
+                Pay General Store
+            </a>
+
+        </div>
+
+
+        <!-- PAYMENT HISTORY -->
+
+        <div class="card">
+
+            <div class="icon">🧾</div>
+
+            <h2>Payment History</h2>
+
+            <p>
+                View your simulated payment transactions.
+            </p>
+
+            <a
+                class="btn secondary"
+                href="payment-history.html"
+            >
+                View Payment History
+            </a>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+<footer>
+
+    <p>
+        Digital Payment Awareness | College Project
+    </p>
+
+    <small>
+        This is an educational demo. No real money or bank account is connected.
+    </small>
+
+</footer>
+
+
 <script>
-if(sessionStorage.getItem("digitalPayLoggedIn")!=="true"){location.href="login.html";}
-else{document.getElementById("welcome").textContent="Welcome, "+(sessionStorage.getItem("digitalPayUsername")||"User")+"!";}
-document.getElementById("logout").onclick=function(){sessionStorage.clear();location.href="login.html";};
+
+const loggedIn =
+    sessionStorage.getItem("digitalPayLoggedIn");
+
+if(loggedIn !== "true"){
+
+    window.location.href = "login.html";
+
+}
+
+
+const username =
+    sessionStorage.getItem("digitalPayUsername") || "User";
+
+
+document.getElementById("username").textContent =
+    username;
+
+document.getElementById("profileUsername").textContent =
+    username;
+
+
+document.getElementById("logoutTop").addEventListener("click", function(){
+
+    sessionStorage.clear();
+
+    window.location.href = "login.html";
+
+});
+
 </script>
-</body></html>
+
+</body>
+</html>
