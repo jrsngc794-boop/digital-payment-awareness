@@ -1,0 +1,14 @@
+[
+  {
+    "id": 1,
+    "username": "junaid",
+    "email": "junaid@test.com",
+    "password": "$2b$10$fevyEY3.qL28aBD5lWzpq.LTNWpFyob1jkW2Nq5JfceG6zRFci//q"
+  },
+  {
+    "id": 2,
+    "username": "priya",
+    "email": "priya@test.com",
+    "password": "$2b$10$v9gE.bysQ4RPrvhBMCvJjOx4xnsLEHF.x7SH7yaPXdWTagj8RtNPm"
+  }
+]

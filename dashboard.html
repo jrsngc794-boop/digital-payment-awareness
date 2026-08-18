@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Dashboard | Digital Payment Awareness</title>
+<style>
+body{margin:0;font-family:Inter,system-ui,-apple-system,"Segoe UI",Arial,sans-serif;background:#f6f9ff;color:#10213a}
+.wrap{max-width:900px;margin:auto;padding:70px 7%}
+.box{background:#fff;border:1px solid #e4eaf2;border-radius:22px;padding:35px;box-shadow:0 18px 50px rgba(18,46,82,.10)}
+h1{color:#155eef}.card{margin-top:20px;padding:22px;border-radius:15px;background:#eef4ff}
+button,a{display:inline-block;margin-top:20px;padding:12px 18px;border-radius:10px;font-weight:800}
+button{border:0;background:#155eef;color:#fff}a{background:#fff;border:1px solid #dbe4f0;color:#10213a;text-decoration:none;margin-left:8px}
+small{color:#617086}
+</style>
+</head>
+<body>
+<div class="wrap"><div class="box">
+<div style="font-weight:900;color:#155eef">DIGITALPAY AWARENESS</div>
+<h1>Admin Dashboard</h1>
+<p id="welcome">Welcome!</p>
+<div class="card">
+<h2>📊 Google Form Responses</h2>
+<p>Your Google Form is connected through the Join With Us page.</p>
+<p><small>Form responses are not automatically displayed here yet. This page is the destination after the demo login.</small></p>
+<a href="https://forms.gle/Ksjkbwx3noKKWQ9b7" target="_blank">Open Google Form</a>
+</div>
+<button id="logout">Logout</button>
+<a href="index.html">Back to Website</a>
+</div></div>
+<script>
+if(sessionStorage.getItem("digitalPayLoggedIn")!=="true"){location.href="login.html";}
+else{document.getElementById("welcome").textContent="Welcome, "+(sessionStorage.getItem("digitalPayUsername")||"User")+"!";}
+document.getElementById("logout").onclick=function(){sessionStorage.clear();location.href="login.html";};
+</script>
+</body></html>
