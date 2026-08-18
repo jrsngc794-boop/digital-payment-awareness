@@ -361,20 +361,10 @@
         </h1>
 
         <p>
-            Your demo payment transactions
+            Your do payment transactions
         </p>
 
     </div>
-
-
-    <div class="demo-warning">
-
-        ⚠️ These are <strong>demo transactions</strong>.
-        No real money has been transferred.
-
-    </div>
-
-
 
     <div class="history-card">
 
@@ -431,7 +421,7 @@ function loadHistory() {
     let transactions =
         JSON.parse(
             localStorage.getItem(
-                "demoPayments"
+                "doPayments"
             )
         ) || [];
 
@@ -457,14 +447,14 @@ function loadHistory() {
 
                 <p>
                     You have not made any
-                    demo payments yet.
+                    do payments yet.
                 </p>
 
                 <a
                     href="payment.html"
                     class="pay-btn"
                 >
-                    💳 Make Demo Payment
+                    💳 Make Do Payment
                 </a>
 
             </div>
@@ -613,7 +603,7 @@ function clearHistory() {
     const transactions =
         JSON.parse(
             localStorage.getItem(
-                "demoPayments"
+                "doPayments"
             )
         ) || [];
 
@@ -631,14 +621,14 @@ function clearHistory() {
 
     const confirmation =
         confirm(
-            "Are you sure you want to delete all demo payment history?"
+            "Are you sure you want to delete all do payment history?"
         );
 
 
     if (confirmation) {
 
         localStorage.removeItem(
-            "demoPayments"
+            "doPayments"
         );
 
 
@@ -646,7 +636,7 @@ function clearHistory() {
 
 
         alert(
-            "Demo payment history cleared."
+            "Do payment history cleared."
         );
 
     }
